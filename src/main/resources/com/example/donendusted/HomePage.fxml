@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="borderpane" minHeight="550.0" minWidth="650.0" prefHeight="650" prefWidth="900" style="-fx-background-color: #E1E1E1; -fx-padding: 30;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.donendusted.HomepageController">
+
+    <!-- Top Section: Welcome & Theme Change Button -->
+    <top>
+        <HBox fx:id="header" alignment="CENTER" prefHeight="56.0" prefWidth="838.0" spacing="10" style="-fx-background-color: #E1E1E1; -fx-effect: dropshadow(gaussian, #106b6470, 10, 0.5, 5, 5); -fx-border-color: #106b6480; -fx-border-width: 2; -fx-border-radius: 15 15 15 15; -fx-background-radius: 15 15 15 15;" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="username" prefHeight="26.0" prefWidth="182.0" style="-fx-text-fill: #106b64; -fx-font-family: 'Cambria Math'; -fx-font-weight: bold; -fx-font-size: 16px;-fx-padding: 10px; -fx-background-radius: 5px;" text="Welcome">
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin></Label>
+            <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                   <HBox fx:id="date" alignment="CENTER" prefHeight="59.0" prefWidth="180.0" style="-fx-background-color: #E1E1E1; -fx-padding: 10; -fx-border-radius: 5; -fx-background-radius: 5;" HBox.hgrow="ALWAYS">
+                       <children>
+                           <Label fx:id="dateTimeLabel" style="-fx-background-color: #E1E1E1;-fx-font-size: 16px; -fx-text-fill: #106b64; -fx-font-family: 'Cambria Math'; -fx-font-weight: bold; -fx-padding: 9px;" wrapText="true" HBox.hgrow="ALWAYS">
+                               <HBox.margin>
+                                   <Insets />
+                               </HBox.margin>
+                           </Label>
+                       </children>
+                   </HBox>
+
+
+               </children>
+            </HBox>
+            <Button fx:id="addButton" onAction="#handleButtonAction" style="-fx-background-color: #E1E1E1; -fx-text-fill: #106b64; -fx-font-family: 'Cambria Math';-fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10px; -fx-border-color: #106b64; -fx-border-radius: 15px; -fx-background-radius: 15px;" text="Change Theme">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            </children>
+        </HBox>
+    </top>
+    <!-- Center Section: Progress Bar and Task List -->
+    <center>
+        <VBox alignment="CENTER" prefHeight="400" spacing="20" BorderPane.alignment="CENTER">
+            <children>
+            <HBox prefHeight="100.0" prefWidth="551.0">
+               <children>
+                      <!-- Progress Section -->
+                      <HBox alignment="CENTER" spacing="10" HBox.hgrow="ALWAYS">
+                          <children>
+                              <Label fx:id="progressText" style="-fx-font-size: 16; -fx-font-family: 'Cambria Math'; -fx-text-fill: #106b64; -fx-font-weight: bold;" text="Progress:" />
+                              <ProgressBar fx:id="progressBar" prefHeight="20" prefWidth="200" style="-fx-control-inner-background: linear-gradient(to right, #e6e6e6, #ffffff); -fx-accent: #106b64; -fx-border-color: #106b64; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;" />
+                              <Label fx:id="progressLabel" style="-fx-font-size: 16; -fx-font-family: 'Cambria Math'; -fx-text-fill: #106b64; -fx-font-weight: bold;" text="0%" />
+                          </children>
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin>
+                      </HBox>
+               </children>
+            </HBox>
+
+                <!-- Task List -->
+                <ListView fx:id="taskListView" prefHeight="478.0" prefWidth="415.0" style="-fx-background-color: #E1E1E1; -fx-text-fill: #106b64; -fx-font-family: 'Cambria Math'; -fx-font-size: 12px; -fx-font-weight: bold; -fx-padding: 6px; -fx-border-color: #106b64; -fx-border-radius: 15px; -fx-background-radius: 15px;" VBox.vgrow="ALWAYS"> </ListView>
+
+            </children>
+        </VBox>
+    </center>
+
+    <!-- Bottom Section: Task Action Buttons -->
+    <bottom>
+        <HBox alignment="CENTER" spacing="20" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="10" top="10" />
+            </padding>
+            <Button fx:id="addTaskButton" onAction="#handleAddTask" style="-fx-background-color: #E1E1E1; -fx-text-fill: #106b64; -fx-font-family: 'Cambria Math';-fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 6px; -fx-border-color: #106b64; -fx-border-radius: 15px; -fx-background-radius: 15px;" text="Add Task" />
+            <Button fx:id="editTaskButton" onAction="#handleEditTask" style="-fx-background-color: #E1E1E1; -fx-text-fill: #106b64; -fx-font-family: 'Cambria Math';-fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 6px; -fx-border-color: #106b64; -fx-border-radius: 15px; -fx-background-radius: 15px;" text="Edit Task" />
+            <Button fx:id="deleteTaskButton" onAction="#handleDeleteTask" style="-fx-background-color: #E1E1E1; -fx-text-fill: #106b64; -fx-font-family: 'Cambria Math';-fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 6px; -fx-border-color: #106b64; -fx-border-radius: 15px; -fx-background-radius: 15px;" text="Delete Task" />
+        </HBox>
+    </bottom>
+
+    <!-- Right Section: Quotes Sidebar -->
+    <right>
+        <VBox alignment="CENTER" prefHeight="407.0" prefWidth="200" snapToPixel="false" spacing="20.0" style="-fx-padding: 10;" BorderPane.alignment="CENTER">
+            <children>
+                <!-- First Quote -->
+                <VBox fx:id="quote1" fillWidth="true" spacing="10.0" style="-fx-background-color: #333333; -fx-effect: dropshadow(gaussian, #ab8f0270, 10, 0.5, 5, 5);-fx-border-color : #ab8f02; -fx-border-width : 1;-fx-border-radius : 7;-fx-padding: 10; -fx-background-radius: 7;">
+                    <Label fx:id ="quote1Text" style="-fx-font-size: 14; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-font-family: Cambria Math; " text=" &quot;Never Learn To Lose Before Actual Defeat, Never Learn To Win Before Actual Win.&quot;" textAlignment="CENTER" wrapText="true" />
+                </VBox>
+                <VBox fx:id="quote2" fillWidth="true" style="-fx-background-color: #333333; -fx-padding: 10;  -fx-effect: dropshadow(gaussian, #ab8f0270, 10, 0.5, 5, 5);-fx-border-color : #ab8f02; -fx-border-width : 1;-fx-border-radius : 7; -fx-background-radius: 7;">
+                    <Label fx:id ="quote2Text" style="-fx-font-size: 14; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-font-family: Cambria Math; -fx-border-color : #33335033" text="&quot;Don't focus on debut, focus on retirement to make it memorable.&quot;" textAlignment="CENTER" wrapText="true" />
+                </VBox>
+                <VBox fx:id="quote3" fillWidth="true" style="-fx-background-color: #333333; -fx-padding: 10;  -fx-effect: dropshadow(gaussian, #ab8f0270, 10, 0.5, 5, 5);-fx-border-color : #ab8f02; -fx-border-width : 1;-fx-border-radius : 7; -fx-background-radius: 7;">
+                    <Label fx:id ="quote3Text" style="-fx-font-size: 14; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-font-family: Cambria Math; -fx-border-color : #33333350" text="&quot;Life is like coding; every line you write shapes the program, every decision you make shapes your journey&quot;" textAlignment="CENTER" wrapText="true">
+                        <padding>
+                            <Insets top="10.0" />
+                        </padding>
+                    </Label>
+                </VBox>
+            </children>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+        </VBox>
+    </right>
+
+    <left>
+      <VBox prefHeight="461.0" prefWidth="195.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <children>
+            <Label fx:id="taskLabel" prefHeight="41.0" prefWidth="148.0" style="-fx-background-color: #E1E1E1; -fx-text-fill: #106b64; -fx-font-family: 'Cambria Math';-fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 7px; -fx-border-color: #106b64; -fx-border-radius: 15px; -fx-background-radius: 15px;" text="         My Day">
+               <VBox.margin>
+                  <Insets left="20.0" top="80.0" />
+               </VBox.margin></Label>
+         </children>
+      </VBox>
+   </left>
+
+</BorderPane>
